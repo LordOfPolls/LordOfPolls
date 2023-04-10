@@ -1,6 +1,6 @@
 ## Hi im the LordOfPolls
 
-- 🔭 I’m currently working on a [*Dis-Snek*](https://github.com/Discord-Snake-Pit/Dis-Snek)
+- 🔭 I’m currently working on a [*interactions.py*](https://github.com/interactions-py/interactions.py)
 - 🌱 I’m currently learning the joys of physics simulation 
 - 😄 Pronouns: *He / Him*
 - ⚡ Fun fact: *I have an unhealthy obsession with polls... hence the name*
