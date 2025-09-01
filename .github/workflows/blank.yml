@@ -38,6 +38,9 @@ jobs:
           plugin_habits_from: 200
           plugin_habits_languages_limit: 8
           plugin_habits_languages_threshold: 0%
+          plugin_wakatime: yes
+          plugin_wakatime_token: ${{ secrets.WAKA_TOKEN }}
+          plugin_wakatime_sections: time, languages, language-graphs
           plugin_calendar: yes
           plugin_calendar_limit: 0
           plugin_languages: yes
