@@ -1,8 +1,8 @@
 # Visit https://github.com/lowlighter/metrics#-documentation for full reference
 name: Metrics
 on:
-  # Schedule updates (each hour)
-  schedule: [{cron: "0 * * * *"}]
+  # Schedule updates (daily)
+  schedule: [{cron: "0 0 * * *"}]
   # Lines below let you run workflow manually and on each commit
   workflow_dispatch:
   push: {branches: ["master", "main"]}
@@ -23,8 +23,6 @@ jobs:
           #  - read:packages (for some packages related data)
           #  - repo          (optional, if you want to include private repositories)
           token: ${{ secrets.METRICS_TOKEN }}
-
-          # Options
           user: LordOfPolls
           template: classic
           base: header, activity, community, repositories, metadata
@@ -33,27 +31,34 @@ jobs:
           config_timezone: Europe/London
           plugin_habits: yes
           plugin_habits_charts_type: classic
-          plugin_habits_days: 30
+          plugin_habits_days: 90
           plugin_habits_facts: yes
           plugin_habits_from: 200
-          plugin_habits_languages_limit: 8
-          plugin_habits_languages_threshold: 0%
+          plugin_habits_languages_limit: 5
+          plugin_habits_languages_threshold: 3%
           plugin_wakatime: yes
           plugin_wakatime_token: ${{ secrets.WAKA_TOKEN }}
           plugin_wakatime_sections: time, languages, language-graphs
+          plugin_wakatime_languages_limit: 3
+          plugin_wakatime_days: 30
           plugin_calendar: yes
-          plugin_calendar_limit: 0
+          plugin_calendar_limit: 3
           plugin_languages: yes
           plugin_languages_analysis_timeout: 15
           plugin_languages_analysis_timeout_repositories: 7.5
           plugin_languages_categories: markup, programming
           plugin_languages_colors: github
-          plugin_languages_limit: 8
+          plugin_languages_limit: 5
           plugin_languages_recent_categories: markup, programming
           plugin_languages_recent_days: 14
           plugin_languages_recent_load: 300
           plugin_languages_sections: most-used
-          plugin_languages_threshold: 0%
+          plugin_languages_threshold: 3%
           plugin_stars: yes
           plugin_stars_limit: 4
-          repositories_forks: yes
+          plugin_followup: yes
+          plugin_followup_sections: repositories
+          plugin_followup_indepth: yes
+          
+          # Focus on original work, not forks
+          repositories_forks: no
